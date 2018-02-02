@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nodedemo-server-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nodedemo-server
+    spec:
+      containers:
+      - name: nodedemo-server
+        image: coolguy1990/nodedemo:v2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
